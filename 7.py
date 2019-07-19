@@ -1,7 +1,8 @@
 import datetime
 import xlrd
 
-print(x)
+name = "Anand1989.xls"
+print(name[0:9])
 
 
 

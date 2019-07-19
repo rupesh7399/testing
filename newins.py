@@ -9,44 +9,13 @@ worksheet = book.sheet_by_index(0)
 database = mysql.connector.connect (host="localhost", user = "root", passwd = "", db = "rainfall")
 
 cursor = database.cursor()
-cursor.execute("DROPE IF EXISTS"+name)
+cursor.execute("DROP TABLE IF EXISTS Anand1989")
 #Create table for insert data in database 
-create = """CREATE TABLE"""+ name +"""(
-     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-     date DATE,
-     ET DOUBLE(8,2),
-     EP DOUBLE(8,2),
-     BSS DOUBLE(8,2),
-     RF DOUBLE(8,2),
-     WD DOUBLE(8,2),
-     WD1 DOUBLE(8,2),
-     WS DOUBLE(8,2),
-     DT1 DOUBLE(8,2),
-     WT1 DOUBLE(8,2),
-     DT2 DOUBLE(8,2),
-     WT2	DOUBLE(8,2),
-     MAXT DOUBLE(8,2),
-     MINT DOUBLE(8,2),
-     RH11 DOUBLE(8,2),
-     RH22 DOUBLE(8,2),
-     VP11 DOUBLE(8,2),
-     VP22 DOUBLE(8,2),
-     CLOUDM DOUBLE(8,2),
-     CLOUDE DOUBLE(8,2),
-     SOIL1 DOUBLE(8,2),
-     SOIL2 DOUBLE(8,2),
-     SOIL3 DOUBLE(8,2),
-     SOIL4 DOUBLE(8,2),
-     SOIL5 DOUBLE(8,2),
-     SOIL6 DOUBLE(8,2),
-     MinTtest DOUBLE(8,2),
-     MaxTtest1 DOUBLE(8,2),
-     MaxTtest2 DOUBLE(8,2),
-     )"""
+create = """CREATE TABLE Anand1989 ( id INT(10)  AUTO_INCREMENT PRIMARY KEY, date DATE, ET DOUBLE(8,2), EP DOUBLE(8,2), BSS DOUBLE(8,2), RF DOUBLE(8,2), WD DOUBLE(8,2), WD1 DOUBLE(8,2), WS DOUBLE(8,2), DT1 DOUBLE(8,2), WT1 DOUBLE(8,2), DT2 DOUBLE(8,2), WT2 DOUBLE(8,2), MAXT DOUBLE(8,2), MINT DOUBLE(8,2), RH11 DOUBLE(8,2), RH22 DOUBLE(8,2), VP11 DOUBLE(8,2), VP22 DOUBLE(8,2), CLOUDM DOUBLE(8,2), CLOUDE DOUBLE(8,2), SOIL1 DOUBLE(8,2), SOIL2 DOUBLE(8,2), SOIL3 DOUBLE(8,2), SOIL4 DOUBLE(8,2), SOIL5 DOUBLE(8,2), SOIL6 DOUBLE(8,2), MinTtest DOUBLE(8,2), MaxTtest1 DOUBLE(8,2), MaxTtest2 DOUBLE(8,2) )"""
 
 cursor.execute(create)
 
-query = """INSERT INTO  Anand1989(DATE,ET,EP,BSS,RF,WD,	WD1,WS,	DT1,WT1,DT2,WT2,MAXT,MINT,RH11,RH22,VP11,VP22,CLOUDM,CLOUDE,SOIL1,SOIL2,SOIL3,SOIL4,SOIL5,SOIL6,MinTtest,MaxTtest1,MaxTtest2) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+query = """INSERT INTO  Anand1989(DATE,ET,EP,BSS,RF,WD,WD1,WS,DT1,WT1,DT2,WT2,MAXT,MINT,RH11,RH22,VP11,VP22,CLOUDM,CLOUDE,SOIL1,SOIL2,SOIL3,SOIL4,SOIL5,SOIL6,MinTtest,MaxTtest1,MaxTtest2) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 #  xlrd : xlrd
 for r in range(1, worksheet.nrows):
     DATE      = worksheet.cell(r,0).value

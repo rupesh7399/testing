@@ -15,7 +15,7 @@ database = mysql.connector.connect (host="localhost", user = "root", passwd = ""
 # Get the cursor, which is used to traverse the database, line by line
 cursor = database.cursor()
 # cursor.execute("DROPE IF EXISTS"+name)
-#Create table for insert data in database
+#Create table for insert data in database 
 # create = """CREATE TABLE"""+ name +"""(
 #     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 #     date DATE,
